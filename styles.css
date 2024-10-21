@@ -1,0 +1,228 @@
+/* Reseteo de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo del cuerpo y fuente general */
+body {
+    font-family: Georgia, serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Encabezado y navegación */
+header {
+    background-color: #c57400;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+/* Estilo de la sección de productos */
+#menu {
+    margin: 40px 0;
+}
+
+.producto {
+    display: inline-block;
+    width: 30%;
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.producto img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: #c57400;
+}
+
+.producto h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.precio {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.add-cart {
+    padding: 10px 20px;
+    background-color: #c57400;
+    border: none;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Sección del carrito */
+#carrito {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 40px 0;
+}
+
+#lista-carrito {
+    list-style: none;
+}
+
+#lista-carrito li {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+#total {
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+#pagar {
+    padding: 10px 20px;
+    background-color: #c57400;
+    border: none;
+    font-size: 1em;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Estilo para la pestaña de pago */
+#pago {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 40px 0;
+}
+
+#confirmar-pago {
+    padding: 10px 20px;
+    background-color: #c57400;
+    border: none;
+    font-size: 1em;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Estilos para el footer */
+footer {
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos en el espacio horizontal */
+    background-color: #f8f8f8;
+    padding: 20px;
+    flex-wrap: wrap; /* Permite que los elementos se acomoden en varias líneas si es necesario */
+}
+
+footer div {
+    flex: 1; /* Cada sección ocupará la misma cantidad de espacio */
+    margin: 0 15px;
+}
+
+.footer-content, .footer-links, .footer-about, .footer-bottom {
+    display: flex;
+    flex-direction: column; /* Organiza los elementos dentro de cada sección en forma vertical */
+}
+
+.footer-bottom {
+    text-align: center;
+    flex: 100%; /* Este elemento ocupará todo el ancho disponible */
+    margin-top: 20px;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin: 5px 0;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+footer h3, footer h4 {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Modal */
+/* Estilos generales del modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Posicionado de forma fija */
+    z-index: 1; /* Asegura que esté encima de otros elementos */
+    padding-top: 60px; /* Espacio superior para el contenido del modal */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo negro con opacidad */
+}
+
+/* Estilos del contenido del modal */
+.modal-content {
+    background-color: #fefefe; /* Fondo blanco para el contenido */
+    margin: 15% auto; /* 15% desde arriba y centrado */
+    padding: 20px; /* Espaciado interno */
+    border: 1px solid #888; /* Borde alrededor del contenido */
+    width: 80%; /* Ancho del modal */
+    max-width: 500px; /* Ancho máximo del modal */
+    text-align: center; /* Centra el texto dentro del modal */
+}
+
+/* Estilos para las imágenes en el modal */
+.modal-content img {
+    width: 200px; /* Ajusta según lo necesites */
+    height: 150px; /* Ajusta según lo necesites */
+    object-fit: cover; /* Mantiene la proporción y recorta si es necesario */
+}
+
+/* Estilos para el botón de cerrar */
+.close {
+    color: #aaa; /* Color por defecto del botón de cerrar */
+    float: right; /* Alinea a la derecha */
+    font-size: 28px; /* Tamaño de fuente del botón */
+    font-weight: bold; /* Peso de fuente */
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Color al pasar el mouse o tener foco */
+    text-decoration: none; /* Sin subrayado */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}

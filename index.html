@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panadería Artesanal Sabor a Hogar</title>  
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Panadería Artesanal Sabor a Hogar</h1>
+        <nav>
+            <ul>
+                <li><a href="#menu">Menú</a></li>
+                <li><a href="#carrito">Carrito</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Bienvenido a Panadería Artesanal Sabor a Hogar</h2>
+        <p>Visita nuestra página para ver nuestros productos y tu carrito de compras.</p>
+    </section>
+    <div id="carrito">
+        <h2>Carrito de Compras</h2>
+        <ul id="lista-carrito"></ul>
+        <div id="total">Total: $0.00</div>
+        <button id="pagar">Finalizar Compra</button>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+            <p id="modal-price"></p>
+            <img id="modal-image" src="" alt="Imagen del producto">
+            <button id="confirmar-agregar-carrito">Añadir al Carrito</button>
+        </div>
+    </div>
+
+    <div id="pago" style="display: none;">
+        <h2>Pago</h2>
+        <div id="monto-a-pagar"></div>
+        <select id="metodo-pago">
+            <option value="">Selecciona método de pago</option>
+            <option value="tarjeta">Tarjeta de Crédito</option>
+            <option value="efectivo">Efectivo</option>
+        </select>
+        <div id="datos-tarjeta" style="display: none;">
+            <input type="text" id="numero-tarjeta" placeholder="Número de Tarjeta" />
+            <input type="text" id="fecha-expiracion" placeholder="MM/AA" />
+            <input type="text" id="codigo-seguridad" placeholder="CVV" />
+        </div>
+        <div id="datos-efectivo" style="display: none;">
+            <input type="number" id="efectivo-recibido" placeholder="Dinero recibido" />
+        </div>
+        <div id="cambio" style="display: none;"></div>
+        <button id="confirmar-pago">Confirmar Pago</button>
+    </div>
+
+ <!-- Sección del Carrito -->
+ <section id="menu">
+    <h2>Menú de Productos</h2>
+    <div class="producto" data-name="Pan Tradicional" data-description="Pan clásico recién horneado, crujiente por fuera y suave por dentro." data-price="10.00">
+        <img src="pan_tradicional.jpg" alt="Pan Tradicional">
+        <h3>Pan Tradicional</h3>
+        <p class="precio">$10.00</p>
+        <button class="add-cart">Añadir al Carrito</button>
+    </div>
+    <div class="producto" data-name="Concha" data-description="Concha esponjosa con una dulce capa de vainilla o chocolate." data-price="12.00">
+        <img src="concha.jpg" alt="Concha">
+        <h3>Concha</h3>
+        <p class="precio">$12.00</p>
+        <button class="add-cart">Añadir al Carrito</button>
+    </div>
+    <div class="producto" data-name="Cuernito" data-description="Cuernito suave y mantequilloso, perfecto para acompañar un café." data-price="8.00">
+        <img src="cuernito.jpg" alt="Cuernito">
+        <h3>Cuernito</h3>
+        <p class="precio">$8.00</p>
+        <button class="add-cart">Añadir al Carrito</button>
+    </div>
+    <div class="producto" data-name="Pan de Muerto" data-description="Pan de temporada espolvoreado con azúcar y esencia de azahar." data-price="11.00">
+        <img src="pan_de_muerto.jpg" alt="Pan de Muerto">
+        <h3>Pan de Muerto</h3>
+        <p class="precio">$11.00</p>
+        <button class="add-cart">Añadir al Carrito</button>
+    </div>
+    <div class="producto" data-name="Baguette" data-description="Baguette crujiente con un interior esponjoso, ideal para sándwiches." data-price="9.00">
+        <img src="baguette.jpg" alt="Baguette">
+        <h3>Baguette</h3>
+        <p class="precio">$9.00</p>
+        <button class="add-cart">Añadir al Carrito</button>
+    </div>
+    <div class="producto" data-name="Pan Integral" data-description="Pan de trigo integral, perfecto para un estilo de vida saludable." data-price="10.50">
+        <img src="pan_integral.jpg" alt="Pan Integral">
+        <h3>Pan Integral</h3>
+        <p class="precio">$10.50</p>
+        <button class="add-cart">Añadir al Carrito</button>
+    </div>
+    <div class="producto" data-name="Pan de Caja" data-description="Clásico pan de caja, ideal para tostadas y sándwiches." data-price="8.50">
+        <img src="pan_de_caja.jpg" alt="Pan de Caja">
+        <h3>Pan de Caja</h3>
+        <p class="precio">$8.50</p>
+        <button class="add-cart">Añadir al Carrito</button>
+    </div>
+    <div class="producto" data-name="Pan de Centeno" data-description="Pan denso y nutritivo hecho con harina de centeno." data-price="12.00">
+        <img src="pan_de_centeno.jpg" alt="Pan de Centeno">
+        <h3>Pan de Centeno</h3>
+        <p class="precio">$12.00</p>
+        <button class="add-cart">Añadir al Carrito</button>
+    </div>
+    <div class="producto" data-name="Pan de Ajo" data-description="Pan infusionado con ajo, ideal para acompañar sopas o pastas." data-price="10.00">
+        <img src="pan_de_ajo.jpg" alt="Pan de Ajo">
+        <h3>Pan de Ajo</h3>
+        <p class="precio">$10.00</p>
+        <button class="add-cart">Añadir al Carrito</button>
+    </div>
+    <div class="producto" data-name="Pan de Mantequilla" data-description="Suave y delicioso pan de mantequilla, perfecto para meriendas." data-price="11.00">
+        <img src="pan_de_mantequilla.jpg" alt="Pan de Mantequilla">
+        <h3>Pan de Mantequilla</h3>
+        <p class="precio">$11.00</p>
+        <button class="add-cart">Añadir al Carrito</button>
+    </div>
+    <div class="producto" data-name="Leche Lala" data-description="Leche Lala entera, ideal para acompañar cualquier comida." data-price="20.00">
+        <img src="leche_lala.jpg" alt="Leche Lala">
+        <h3>Leche Lala</h3>
+        <p class="precio">$20.00</p>
+        <button class="add-cart">Añadir al Carrito</button>
+    </div>
+    <div class="producto" data-name="Leche Nutri" data-description="Leche baja en grasa, perfecta para dietas balanceadas." data-price="18.00">
+        <img src="leche_nutri.jpg" alt="Leche Nutri">
+        <h3>Leche Nutri</h3>
+        <p class="precio">$18.00</p>
+        <button class="add-cart">Añadir al Carrito</button>
+    </div>
+    <div class="producto" data-name="Leche Santa Clara" data-description="Leche Santa Clara, rica y nutritiva." data-price="22.00">
+        <img src="leche_santa_clara.jpg" alt="Leche Santa Clara">
+        <h3>Leche Santa Clara</h3>
+        <p class="precio">$22.00</p>
+        <button class="add-cart">Añadir al Carrito</button>
+    </div>
+    <div class="producto" data-name="Leche Lala Deslactosada" data-description="Leche Lala deslactosada, ideal para quienes buscan una opción ligera." data-price="21.00">
+        <img src="leche_lala_deslactosada.jpg" alt="Leche Lala Deslactosada">
+        <h3>Leche Lala Deslactosada</h3>
+        <p class="precio">$21.00</p>
+        <button class="add-cart">Añadir al Carrito</button>
+    </div>
+    <div class="producto" data-name="Leche de Chocolate" data-description="Deliciosa leche de chocolate, perfecta para el desayuno." data-price="25.00">
+        <img src="leche_chocolate.jpg" alt="Leche de Chocolate">
+        <h3>Leche de Chocolate</h3>
+        <p class="precio">$25.00</p>
+        <button class="add-cart">Añadir al Carrito</button>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <h3>Panadería Artesanal Sabor a Hogar</h3>
+        <p>Deliciosos panes recién horneados todos los días.</p>
+        <p>Teléfono: +52 55 4554 8980</p>
+        <p>Email: panaderiasaborahogar123@gmail.com</p>
+        <p>Dirección: Av Industrias No. 3690, Zona Industrial, 78395 San Luis Potosí, S.L.P</p>
+    </div>
+
+    <div class="footer-links">
+        <h4>Soporte al Cliente</h4>
+        <ul>
+            <li><a href="#">Facturación</a></li>
+            <li><a href="#">Ayuda</a></li>
+            <li><a href="#">Mis Compras</a></li>
+        </ul>
+    </div>
+
+    <div class="footer-about">
+        <h4>Acerca de Nuestra Panadería</h4>
+        <ul>
+            <li><a href="#">Promociones</a></li>
+            <li><a href="#">Venta Nocturna</a></li>
+            <li><a href="#">Hot Sale</a></li>
+            <li><a href="#">Buen Fin</a></li>
+        </ul>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 Panadería Artesanal Sabor a Hogar. Todos los derechos reservados.</p>
+        <ul>
+            <li><a href="#">Términos y Condiciones</a></li>
+            <li><a href="#">Aviso de Privacidad</a></li>
+            <li><a href="#">Mapa del Sitio</a></li>
+        </ul>
+    </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
